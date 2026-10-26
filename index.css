@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #07060d;
+  --plum: #1b0f2e;
+  --rose: #ff4f8b;
+  --peach: #ffb27a;
+  --iris: #7a8cff;
+  --mist: #b9b3d1;
+}
+
+html, body, #root { height: 100%; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(120% 70% at 50% 0%, var(--plum) 0%, transparent 60%),
+    radial-gradient(90% 60% at 50% 110%, #2a0f2b 0%, transparent 60%),
+    var(--ink);
+  color: #f3eefc;
+  font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+  overscroll-behavior: none;
+  -webkit-tap-highlight-color: transparent;
+  padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom);
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); opacity: .55; }
+  50% { transform: scale(1.12); opacity: .9; }
+}
+@keyframes ping-ring {
+  0% { transform: scale(.9); opacity: .6; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+.animate-breathe { animation: breathe 3.2s ease-in-out infinite; }
+.animate-ping-ring { animation: ping-ring 1.6s ease-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-breathe, .animate-ping-ring { animation: none; }
+}
